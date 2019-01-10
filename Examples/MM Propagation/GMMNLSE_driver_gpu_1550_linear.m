@@ -19,7 +19,7 @@ load([prefix '/betas.mat']); % in fs^n/mm
 unit_conversion = 0.001.^(-1:size(betas, 1)-2)'; % The imported values are in fs^n/mm, but the simulation uses ps^n/m
 betas = betas.*unit_conversion;
 fiber.betas = betas;
-fiber.SR = 0*SR;
+fiber.SR = 0.000000001*SR; #If this is exactly zero, it creates some problems. Multiplying it by a small number is sufficient. 
 
 fiber.L0 = 5; % Fiber length in m
 
